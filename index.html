@@ -1,0 +1,129 @@
+<!--
+    - This block is a comment in HTML -
+    HTML5 Responsive Web Design Template
+    by Stefan Schultz
+    for MDDN 352: Mobile Media (T1 2018)
+    - If you use this template, remove most of the comments for production, or minify your HTML. -
+    Want a quick overview of all HTML tags? Cheatsheet here: https://html.com/wp-content/uploads/html-cheat-sheet.pdf
+-->
+
+<html lang="en"> <!-- This tells the browser that this document is HTML code, and in English. -->
+    <head>
+
+        <!-- The head is where basic page settings are applied, but no actual page content (you won't see any of this in the browser viewport) -->
+
+        <title></title> <!-- Title of page for search engines + windows/tabs -->
+
+        <!-- Meta tags provide information about the website, but not necessarily used by the site itself - often for search engines, or the browser. -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> <!-- Fallback/compatibility tag for telling the browser how to read this code, as HTML. -->
+        <meta name="description" content="This webpage is an example template to build a responsive HTML5 website." /> <!-- Description of what the website/content. This is how you do Search Engine Optimisation. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- This sets the page size, and lets you use media queries in CSS for responsiveness -->
+
+        <!--
+            Link tags here point to files you want to include in the site, such as icons and stylesheets.
+            "rel" = relevance; what the linked file means. "href" = where the file is, either online or relative to this document - never used a full local path (i.e. C:/Users/Name/Documents...index.html). Only reference as far back as the index.html file.
+        -->
+        <!-- <link rel="shortcut icon" href="media/favicon.png" /> --> <!-- Replace the linked file with your icon. -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" /> <!-- This is normalize.css, which resets basic/default styling across browsers, making design and layout easier and more consistent. -->
+
+        <link rel="stylesheet" href="main.css" /> <!-- This links to your custom page styling. -->
+
+        <!-- This links to a webfont, from Google Fonts; this lets you use a font not installed on the user's system. This is Roboto, the Android system font, with all weights, and italics. We'll call this in 'css/main.css' later.  -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- This is the body of the webpage - in here are all the things that you will display in the browser viewport: text, images, etc. -->
+        <section>
+            <!--
+                This is a section; it helps split the page neatly, and is good for accessibility, as well as jumping to with a link if need be.
+                We'll use this one as a page header.
+            -->
+           
+        </section>
+
+        <section class="hero">
+            <!-- We've given this section a class; so we can give it unique styling with CSS later, by selecting the class name. -->
+            <div class="scrim">
+                <div class="icon">
+                    <img src="ICON.svg" width="15%" >
+                     <!-- A div (or division) lets us split the page into chunks that can be worked with and styled more specifically. In this case, we're nesting text inside a div, so we can create an effect in CSS that makes the text more readable. -->
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="body-section">
+                
+                <div class="homeimagediv">
+                <img src="pt.png" width="100%">
+                </div>
+            
+            
+        </section>
+
+        <section class="intro">
+
+            <div class="intro1">
+                <img class="homeimage" src="home.png">
+            </div>
+
+            <div class="intro2">
+                <h1><b>FIND A BIKE</b></h1>
+                <h2>FLEXIBILITY</h2>
+                <h2>HUMAN CONTACT</h2>
+                <h2>LOWER PRICE</h2>
+            </div>
+            
+        </section>
+
+        <section class="pic">
+
+            <div class="infodiv">
+                <h4>GET MORE INFORMATION</h4>
+            </div>
+
+            <div class="pic1">
+                <img class="lo" src="location.png" width="30%">
+                <img class="de" src="detail.png" width="30%">
+                <img class="re" src="review.png" width="30%">
+            </div>
+            <div class="pic2">
+                <img class="bottom1" src="bottom.png">
+                
+            </div>
+
+            
+        </section>
+
+        <section class="lend">
+
+            <div class="lend1">
+                <h3><b>SHARE YOUR BIKE</b></h3>
+                <h2>MEET FRIENDS</h5>
+                <h2>SAFETY</h2>
+                <h2>MAKE MONEY</h5>
+            </div>
+
+            <div class="lend2">
+                <img class="lendimage" src="lease.png">
+                <img class="overtime" src="overtime.png">
+            </div>
+            
+        </section>
+
+        <section class="footer">
+            <div class="about">
+                <h6>About Us</h6>
+                <h7>Cheacin is a peer-to-peer mobile application. It will provide a platform for mountain bike rider rent or lend a bike to other users. The purpose of this application is creating a safety and reliable free market for mountain bike riders. The Cheacin project aims to provide a platform for users could access more bike rental resources with detailed information and good price. </h7>
+            </div>
+        </section>
+        
+
+    </body>
+
+   
+
+</html>
