@@ -1,0 +1,376 @@
+/*  This is a comment in CSS.
+    HTML5 Responsive Web Design Template
+    by Stefan Schultz
+    for MDDN 352: Mobile Media (T1 2018)
+    - If you use this template, remove most of the comments for production, or minify your HTML. -
+*/
+
+
+/* -------- Base styles - these will always apply, no matter what. -------- */
+
+html {
+    font-family: 'Roboto', sans-serif;
+    /* Here we say that every piece of text should be in the Roboto font we loaded from Google in the HTML header; if that can't load, use the browser default sans serif font. */
+
+    font-size: 16px;
+    /* This tells every piece of text should default to 16px in size. We'll use other values as multipliers of this later, but this ensures styling consistency across browsers/platforms. */
+
+    color: rgb(70,70,85);
+    /* This sets all text to be a very dark, slightly blue grey. You can specify a named color, a hex code (#FFFFFF, e.g.), use rgb or hsl, or use rgba/hsla for color with alpha (translucency). */
+
+    overflow-x: hidden;
+    /* This is telling the browser to hide anything that goes off the left and right edges of the page, and not let the user scroll to see it. */
+
+}
+
+body {
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    /* This locks the element to the position we set - even when the user scrolls the browser, this element will not move; it will *always* stay on screen. */
+
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Because this is a fixed element, we can manually set the edges of the element: in this case, to the top, left and right of the viewport. */
+
+    height: 50px;
+    /* Now we can say how high the element is. You can use a variety of units, "px" being pixels for fixed, unchanging sizes. */
+
+    background-color: rgba(0, 117, 255, 0.85);
+    /* This sets the entire background of the element to a color, in this case, a slightly translucent blue. */
+
+    z-index: 10;
+    /* This tells the element how to layer. We want the header on top of everything else, so be sure to set this number higher than any other element, or it could be covered up at some point. */
+
+    -webkit-backdrop-filter: blur(25px);
+    /* This is an example of a browser specific tag - to blur content as it passes behind the element. This will only work in WebKit browsers, so to see it, open this page in Safari. The "-engine" prefix tells specific browsers how to handle unique things, but should generally be avoided to maximise compatibility. */
+
+    transition: 0.2s;
+    /* This tells the browser to smoothly change between properties if a change occurs - fade between colours, for example. The 0.2s specifies it will take 0.2 seconds to complete. */
+}
+
+header h3 {
+    /* Now we have selected every h3 element that is a child of a header element, so we can style them uniquely. */
+    color: white;
+
+    font-size: 1.6rem;
+    /* This sets the header h3 text to be 1.6x the base size we declared on the HTML (16px). "rem" is a relative measurement, which works as a multiplier to a base size you set on all HTML. This makes resizing for accessibility/different screen sizes and layouts very easy.*/
+
+    line-height: 0.1rem;
+    /* One of the easiest ways to vertically center text in a box is by seting the line height to a fraction of the full size. This won't work for multi-line blocks of text! */
+
+    text-align: center;
+}
+
+.mobile-notifier {
+    display: none;
+    /*
+        Setting display to "none" here will hide this element by default. We can then show it later, when specific conditions are met.
+        We're still declaring the base styles here though, in case we want to use the element in different places later.
+     */
+
+    position: absolute;
+    /* This sets the element's position to "absolute", which means it is positioned in a fixed position of the browser viewport, and will not move with other elements. This can cause issues with layout at different screen sizes, or if you add more content, so use with care, and as little as possible. */
+
+    top: 8px;
+    right: 5px;
+    /* Absolute positioning lets us use these edge values for positioning in the same way as fixed positioning. */
+
+    color: rgba(200,50,42,0.8);
+    font-weight: 800;
+    /* Font-weight is how we make text lighter, or more bold. You can use keywords, or numerical values from 100 - 900 (round to the hundred). 100 is the lightest possible weight, 900 the boldest. Not all fonts provide all weights, so some trial and error is best here. */
+
+    border: solid 4px rgba(200,50,42,0.8);
+    /* This puts an even border all the way around the element - a solid line (you can also use "dashed"), that is 4px thick (you can use any CSS values here), and with the colour rgba(200,50,42,0.8) - so it's also slightly translucent. */
+
+    padding: 5px 10px 5px 10px;
+    /* This lets you put additional spacing around an element or text, to style or lay it out better. You can use it in the same way as border, (padding-left, padding-right, etc.), or like this- padding: top, right, bottom, left.  */
+
+    border-radius: 8px;
+    /* This makes the corners of the shape rounded, by the value declared. It is always an even quarter circle rounding, so if you set the value high enough, it can be used to make a circle from a square in CSS. */
+
+}
+
+.hero {
+    /* Placing a dot before text selects elements by their classname. A "hero" is traditonally a big, full size image that introduces a page. */
+
+    height: 60vh;
+    /* "vh" and "vw" are "Viewport Height" and "Viewport Width" - these values are expressed as percentages of how tall or wide your viewport is, so dynamically change size with the browser or screen. This example is 70% of the viewport height. */
+
+    background-image: url("background.jpg");
+    /* This sets an image from a URL to be the background of an element. You should avoid linking directly to other people's sites/images nearly always - it's bad practice, and can be illegal. (I have linked to my own site for this example) */
+
+    background-position: center;
+    /* This sets the background image position - the point around which it will tile or scale. */
+
+    background-repeat: none;
+    /* This tells the background image to not repeat or tile, but just display once. Anywhere not covered by the image will default to the background-color, if set (else, "clear" or white) */
+
+    background-size: cover;
+    /* Using this, the image will scale to completely cover its' element container at all times, never leaving blank space or repeating. The edges of the image may be cropped off to make it cover properly. Use "contain" to fit the image to its' container with no cropping - this will leave blank space (or tiling) around it normally. */
+}
+
+.scrim {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40vh;
+    top: 10vh;
+    /* We're using absolute positoning here to get something that stretches across the window completely, and we know the vertical positoning of. The viewport height relative (vh) values help cover any resizing issues that might crop up. */
+
+    background: linear-gradient(0deg, rgba(25,25,30,0.75) 0%,rgba(35,35,40,0) 100%);
+}
+
+
+
+.scrim > .icon {
+    position: relative;
+    text-align: center;
+    color: white;
+    
+    
+    
+    
+}
+
+.body-section {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    
+}
+
+
+
+.text1{
+    text-align: right;
+    float: left;
+    padding: 1em;
+    word-break:break-all; width:400px;
+    /*vertical-align: middle;*/
+    /*margin-left: 1em;*/
+}
+
+
+
+
+.homeimagediv{
+    float: right;
+    text-align: right;
+    margin-top: 0em;
+    background: FF4E00;
+   /* margin-right: 4em;*/
+    
+}
+
+.homeimage{
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1em;
+    margin-top: 4em;
+    /*margin-left: 1%;*/
+    /*margin-right: auto;*/
+    
+ 
+}
+
+.planimage{
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1em;
+    padding-top: 4em;
+
+}
+
+ h1 {
+/*    margin-top: 10%;*/
+    font-size: 100px;
+    color: rgb(255,255,255);
+    font-family: sans-serif;
+    margin-left: 10%;
+}
+h2{
+
+    font-size: 40px;
+    color: rgb(255,255,255);
+    font-family: sans-serif;
+    margin-left: 10%;
+}
+
+h3{
+
+    font-size: 80px;
+    color: rgb(255,255,255);
+    font-family: sans-serif; 
+    margin-left: 10%;
+}
+
+h4{
+    font-size: 50px;
+    font-family: sans-serif;
+    color: rgb(255,255,255);
+    margin-top: 10%   
+}
+
+h5{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: rgb(255,255,255);
+    margin-left: 10%;
+    /*word-spacing: 20em;*/
+}
+
+h6{
+    font-size: 60px;
+    color: rgb(0,0,0);
+    font-family: sans-serif;
+    
+
+}
+
+h7{
+    font-size: 25px;
+    color: rgb(0,0,0);
+    font-family: sans-serif;
+}
+p1{
+    font-size: 18px;
+    color: rgb(255,255,255);
+    font-family: sans-serif;
+}
+
+.intro{
+    background-color: rgb(255,78,0);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    /*display: inline;*/
+
+}
+
+.intro1{
+    float: left;
+    text-align: center;
+    background-color: rgb(255,78,0);
+    width: 50%;
+    height: 100%;
+
+    
+
+
+}
+
+.intro2{
+    float: right;
+    text-align: left;
+    /*margin-left: 1em;*/
+    margin-right: auto;
+    background-color: rgb(255,78,0);
+    width: 50%;
+    height: 100%;
+    
+}
+
+.pic{
+    background-color: rgb(20,204,77);
+    width: 100%;
+
+}
+
+.pic1{
+    background-color: rgb(0,178,156);
+    width: 100%;
+
+    text-align: center;
+}
+
+.pic2{
+    background-color: rgb(0,178,156);
+    width: 100%;
+    padding-top: 4em;
+    text-align: right;
+
+}
+
+.bottom1{
+    width: 20%;
+    padding-right: 4em;
+}
+
+
+.infodiv{
+    background-color: rgb(0,178,156);
+    width: 100%;
+   /* height: 50%;*/
+    padding: 4em;
+/*    word-spacing: 30px;*/
+}
+
+
+
+.lo{
+    margin: 1em;
+
+}
+.re{
+    margin: 1em;
+}
+.de{
+    margin: 1em;
+}
+
+.lend{
+    background-color: rgb(255,78,0);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    /*display: inline;*/
+
+}
+
+.lend1{
+    float: left;
+    text-align: left;
+    background-color: rgb(255,78,0);
+    width: 50%;
+    height: 100%;
+    
+
+
+    
+
+
+}
+
+.lend2{
+    float: right;
+    text-align: center;
+    /*margin-left: 1em;*/
+    margin-right: auto;
+    background-color: rgb(255,78,0);
+    width: 50%;
+    height: 100%;
+    
+}
+
+.lendimage{
+    width: 40%;
+    margin-top: 4em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.overtime{
+    width: 40%;
+    margin-left: 2em;
+}
+
+.about{
+    padding: 20%;
+    /*word-wrap: break-word;width: 900px;*/
+    text-align: center;
+    height: 70%;
+}
